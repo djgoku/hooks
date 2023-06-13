@@ -1,0 +1,6 @@
+- id: bats
+  name: bats
+  description: Run bats tests. https://github.com/bats-core/bats-core
+  language: system
+  entry: bats
+  pass_filenames: false
