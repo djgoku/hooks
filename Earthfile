@@ -8,10 +8,11 @@ build:
     WORKDIR /
     RUN apk add git musl-dev go gcc bash
     RUN pip install pre-commit
-    RUN git init
 
 install-hooks:
     FROM +build
+    WORKDIR /app
+    RUN git init
     COPY .pre-commit-config.yaml .
     COPY .secrets.baseline .
     RUN pre-commit install-hooks
