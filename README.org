@@ -1,2 +1,20 @@
 * Hooks
 Pre-commit hooks
+** Using pre-commit-hooks with pre-commit
+
+Add this to your ~.pre-commit-config.yaml~
+
+#+begin_src yaml
+- repo: https://github.com/djgoku/hooks
+  rev: v0.1.0  # Use the ref you want to point at
+  hooks:
+    - id: bats
+      args: ["bats/tests"]
+    # - id: ...
+#+end_src
+*** Hooks available
+**** ~bats~
+/Requires ~bats~ to be installed./
+
+Run Bash Automated Testing System (bats) tests.
+- Specify the bats testing folder with ~args: ["bats/tests"]~.
