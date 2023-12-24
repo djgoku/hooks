@@ -11,7 +11,7 @@
   # entry: perl -e 'use Cwd qw(cwd);print "(@ARGV)";$dir = cwd; print "cwd is $dir\n";'
   # entry: perl -ne 'my $status_code=system("perl -c $ARGV[0]"); print("status_code is $status_code for $ARGV[0]\n"); if ($status_code != 0) {exit -1;}'
   # entry: perl -E 'if($ENV{DEBUG}){print "\@ARGV contains (@ARGV)\n\n"}foreach(@ARGV){my $o=`perl -c $_ 2>&1`; if($ENV{DEBUG}){print("Script $_\nExit Code $?\nSTDOUT/STDERR $o\n")} if ($? != 0) {print $o;exit -1}}'
-  entry: perl check-perl-syntax.pl
+  entry: perl -e 'use v5.10;if($ENV{DEBUG}){say "\@ARGV contains (@ARGV)\n";}foreach(@ARGV){my $output=`perl -c $_ 2>&1`;if($ENV{DEBUG}){say("Script $_\nExit Code $?\nSTDOUT/STDERR $output\n");}if($? != 0){say $output;exit -1;}}'
   pass_filenames: true
   # types: [perl]
   # files: \.pl$
