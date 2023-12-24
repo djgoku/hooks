@@ -27,3 +27,11 @@ repos:
     rev: v0.9.0
     hooks:
       - id: yamlfmt
+  - repo: https://github.com/scop/pre-commit-perlcritic
+    rev: v1.152-1
+    hooks:
+      - id: perlcritic
+  - repo: meta
+    hooks:
+      - id: check-hooks-apply
+      - id: identity
